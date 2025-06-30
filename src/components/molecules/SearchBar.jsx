@@ -1,39 +1,55 @@
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import Input from '@/components/atoms/Input'
-import Button from '@/components/atoms/Button'
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Input from "@/components/atoms/Input";
+import Button from "@/components/atoms/Button";
 
 const SearchBar = ({ onSearch, placeholder = "Search tasks...", className = '' }) => {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchValue, setSearchValue] = useState('')
+  const debounceTimer = React.useRef(null)
 
-  useEffect(() => {
-    const debounceTimer = setTimeout(() => {
-      onSearch(searchTerm)
-    }, 300)
+  // Defensive function check with development warning
+  const safeOnSearch = typeof onSearch === 'function' ? onSearch : (() => {
+    if (process.env.NODE_ENV === 'development' && onSearch !== undefined) {
+      console.warn('SearchBar: onSearch prop must be a function, received:', typeof onSearch)
+    }
+  })
 
-    return () => clearTimeout(debounceTimer)
-  }, [searchTerm, onSearch])
+useEffect(() => {
+    if (searchValue.trim()) {
+      debounceTimer.current = setTimeout(() => {
+        safeOnSearch(searchValue.trim())
+      }, 300)
+    } else {
+      safeOnSearch('')
+    }
+
+    // Cleanup debounce timer
+    return () => {
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current)
+      }
+    }
+  }, [searchValue, safeOnSearch])
 
   const handleClear = () => {
-    setSearchTerm('')
-    onSearch('')
+    setSearchValue('')
   }
 
-  return (
-    <motion.div 
-      className={`relative ${className}`}
+return (
+    <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      className={`relative ${className}`}
     >
       <Input
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
         placeholder={placeholder}
         icon="Search"
         className="pr-10"
       />
-      {searchTerm && (
+      {searchValue && (
+{searchValue && (
         <div className="absolute inset-y-0 right-0 flex items-center pr-3">
           <Button
             variant="ghost"
