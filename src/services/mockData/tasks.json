@@ -1,0 +1,116 @@
+{
+  "mockTasks": [
+    {
+      "Id": 1,
+      "title": "Review quarterly marketing strategy",
+      "description": "Analyze Q3 performance metrics and prepare recommendations for Q4 marketing initiatives",
+      "priority": "high",
+      "categoryId": "1",
+      "dueDate": "2024-01-15T09:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-10T10:30:00.000Z",
+      "order": 1
+    },
+    {
+      "Id": 2,
+      "title": "Update project documentation",
+      "description": "Revise API documentation and update user guides with recent feature changes",
+      "priority": "medium",
+      "categoryId": "1",
+      "dueDate": "2024-01-12T14:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-09T11:15:00.000Z",
+      "order": 2
+    },
+    {
+      "Id": 3,
+      "title": "Schedule team meeting",
+      "description": "Organize monthly team sync to discuss project progress and upcoming deadlines",
+      "priority": "medium",
+      "categoryId": "1",
+      "dueDate": "2024-01-11T16:00:00.000Z",
+      "completed": true,
+      "completedAt": "2024-01-11T15:45:00.000Z",
+      "createdAt": "2024-01-08T09:20:00.000Z",
+      "order": 3
+    },
+    {
+      "Id": 4,
+      "title": "Buy groceries for the week",
+      "description": "Fresh vegetables, fruits, dairy products, and pantry essentials",
+      "priority": "low",
+      "categoryId": "2",
+      "dueDate": "2024-01-13T18:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-10T08:00:00.000Z",
+      "order": 4
+    },
+    {
+      "Id": 5,
+      "title": "Call dentist for checkup appointment",
+      "description": "Schedule routine dental cleaning and examination",
+      "priority": "medium",
+      "categoryId": "3",
+      "dueDate": "2024-01-14T10:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-09T17:30:00.000Z",
+      "order": 5
+    },
+    {
+      "Id": 6,
+      "title": "Finish reading 'Atomic Habits'",
+      "description": "Complete the remaining chapters and take notes on key concepts",
+      "priority": "low",
+      "categoryId": "4",
+      "dueDate": "2024-01-20T20:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-05T19:00:00.000Z",
+      "order": 6
+    },
+    {
+      "Id": 7,
+      "title": "Prepare presentation for client meeting",
+      "description": "Create slides showcasing project progress and next phase timeline",
+      "priority": "urgent",
+      "categoryId": "1",
+      "dueDate": "2024-01-12T09:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-10T13:45:00.000Z",
+      "order": 7
+    },
+    {
+      "Id": 8,
+      "title": "Plan weekend hiking trip",
+      "description": "Research trails, check weather forecast, and pack necessary gear",
+      "priority": "low",
+      "categoryId": "2",
+      "dueDate": "2024-01-13T12:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-09T20:15:00.000Z",
+      "order": 8
+    },
+    {
+      "Id": 9,
+      "title": "Review insurance policies",
+      "description": "Compare current coverage options and renewal rates for health and auto insurance",
+      "priority": "medium",
+      "categoryId": "3",
+      "dueDate": "2024-01-18T15:00:00.000Z",
+      "completed": false,
+      "createdAt": "2024-01-08T14:20:00.000Z",
+      "order": 9
+    },
+    {
+      "Id": 10,
+      "title": "Complete online course module",
+      "description": "Finish Module 3: Advanced JavaScript Concepts and submit assignments",
+      "priority": "high",
+      "categoryId": "4",
+      "dueDate": "2024-01-16T23:59:00.000Z",
+      "completed": true,
+      "completedAt": "2024-01-16T21:30:00.000Z",
+      "createdAt": "2024-01-07T16:00:00.000Z",
+      "order": 10
+    }
+  ]
+}

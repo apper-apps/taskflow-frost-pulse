@@ -1,0 +1,46 @@
+{
+  "mockCategories": [
+    {
+      "Id": 1,
+      "name": "Work",
+      "color": "#5B4EE9",
+      "taskCount": 4,
+      "order": 1
+    },
+    {
+      "Id": 2,
+      "name": "Personal",
+      "color": "#F97316",
+      "taskCount": 2,
+      "order": 2
+    },
+    {
+      "Id": 3,
+      "name": "Health",
+      "color": "#10B981",
+      "taskCount": 2,
+      "order": 3
+    },
+    {
+      "Id": 4,
+      "name": "Learning",
+      "color": "#3B82F6",
+      "taskCount": 2,
+      "order": 4
+    },
+    {
+      "Id": 5,
+      "name": "Shopping",
+      "color": "#8B5CF6",
+      "taskCount": 0,
+      "order": 5
+    },
+    {
+      "Id": 6,
+      "name": "Finance",
+      "color": "#EF4444",
+      "taskCount": 0,
+      "order": 6
+    }
+  ]
+}
