@@ -41,10 +41,10 @@ const Dashboard = ({ filter: propFilter }) => {
     }
   }
 
-  const getPageTitle = () => {
+const getPageTitle = () => {
     if (categoryId) {
       const category = categories.find(c => c.Id.toString() === categoryId)
-      return category ? category.name : 'Category Tasks'
+      return category ? category.Name : 'Category Tasks'
     }
     
     switch (propFilter) {

@@ -73,14 +73,14 @@ const TaskList = ({ searchTerm, categoryFilter, priorityFilter, statusFilter }) 
   }
 
   // Filter tasks based on search and filters
-  const filteredTasks = tasks.filter(task => {
+const filteredTasks = tasks.filter(task => {
     // Search filter
     if (searchTerm && !task.title.toLowerCase().includes(searchTerm.toLowerCase())) {
       return false
     }
 
     // Category filter
-    if (categoryFilter && task.categoryId !== categoryFilter) {
+    if (categoryFilter && task.category_id?.toString() !== categoryFilter) {
       return false
     }
 
@@ -96,16 +96,16 @@ const TaskList = ({ searchTerm, categoryFilter, priorityFilter, statusFilter }) 
     if (statusFilter === 'active' && task.completed) {
       return false
     }
-    if (statusFilter === 'today') {
+if (statusFilter === 'today') {
       const today = new Date().toISOString().split('T')[0]
-      const taskDate = task.dueDate ? task.dueDate.split('T')[0] : null
+      const taskDate = task.due_date ? task.due_date.split('T')[0] : null
       if (taskDate !== today) {
         return false
       }
     }
-    if (statusFilter === 'upcoming') {
+if (statusFilter === 'upcoming') {
       const today = new Date()
-      const taskDate = task.dueDate ? new Date(task.dueDate) : null
+      const taskDate = task.due_date ? new Date(task.due_date) : null
       if (!taskDate || taskDate <= today) {
         return false
       }
@@ -130,15 +130,17 @@ const TaskList = ({ searchTerm, categoryFilter, priorityFilter, statusFilter }) 
       return aPriority - bPriority
     }
 
-    // Then by due date (earliest first)
-    if (a.dueDate && b.dueDate) {
-      return new Date(a.dueDate) - new Date(b.dueDate)
+// Then by due date (earliest first)
+    if (a.due_date && b.due_date) {
+      return new Date(a.due_date) - new Date(b.due_date)
     }
+    if (a.due_date) return -1
+    if (b.due_date) return 1
     if (a.dueDate) return -1
     if (b.dueDate) return 1
 
-    // Finally by creation date
-    return new Date(b.createdAt) - new Date(a.createdAt)
+// Finally by creation date
+    return new Date(b.created_at) - new Date(a.created_at)
   })
 
   if (loading) return <Loading />
@@ -158,8 +160,8 @@ const TaskList = ({ searchTerm, categoryFilter, priorityFilter, statusFilter }) 
   return (
     <div className="space-y-3">
       <AnimatePresence mode="popLayout">
-        {sortedTasks.map((task) => {
-          const category = categories.find(c => c.Id.toString() === task.categoryId)
+{sortedTasks.map((task) => {
+          const category = categories.find(c => c.Id.toString() === task.category_id?.toString())
           return (
             <motion.div key={task.Id} className="group">
               <TaskCard

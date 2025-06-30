@@ -15,13 +15,13 @@ const TaskQuickAdd = ({ onAddTask, categories = [] }) => {
     e.preventDefault()
     if (!title.trim()) return
 
-    const newTask = {
+const newTask = {
       title: title.trim(),
-      categoryId: selectedCategory || (categories[0]?.Id.toString() || '1'),
+      category_id: selectedCategory || (categories[0]?.Id || 1),
       priority,
-      dueDate: dueDate || null,
+      due_date: dueDate || null,
       completed: false,
-      createdAt: new Date().toISOString()
+      created_at: new Date().toISOString()
     }
 
     onAddTask(newTask)
@@ -93,9 +93,9 @@ const TaskQuickAdd = ({ onAddTask, categories = [] }) => {
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className="w-full px-3 py-2 border border-surface-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white"
                 >
-                  {categories.map(category => (
+{categories.map(category => (
                     <option key={category.Id} value={category.Id.toString()}>
-                      {category.name}
+                      {category.Name}
                     </option>
                   ))}
                 </select>
